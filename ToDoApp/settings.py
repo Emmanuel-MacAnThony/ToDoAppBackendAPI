@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #third-party apps
     'rest_framework',
     'corsheaders',
+    'ckeditor',
     
     #project apps
     'tasks.apps.TasksConfig',
@@ -135,3 +136,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000"
 ]
+
+#ckeditor settings
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 50,
+        'width': 550,
+    },
+}

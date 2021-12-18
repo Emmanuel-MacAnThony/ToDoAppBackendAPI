@@ -45,7 +45,9 @@
 </style>
 <div class="center-column">
   <form method="post" action="{% url 'tasks' %}">
-    {{ form.as_p}} {% csrf_token %}
+    {{ form.as_p}}
+    {{form.media}}
+    {% csrf_token %}
     <input type="submit" class="btn btn-info" value="Create Task" />
   </form>
   <div class="todo-list"></div>
@@ -54,9 +56,9 @@
     <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Edit</a>
     <a class="btn btn-sm btn-danger" href="{% url 'delete_task' task.id %}">Delete</a>
     {% if task.complete == True %}
-    <strike><span>{{ task }}</span></strike>
+    <strike><span>{{ task | safe }}</span></strike>
     {% else %}
-    <span>{{ task }}</span>
+    <span>{{ task | safe }}</span>
     {% endif %}
   </div>
   {% endfor %}
